@@ -2,11 +2,12 @@ import os
 import pdfplumber
 import re
 import pandas as pd
-import time
 import math
 import shutil
 import sys
-from datetime import datetime
+import logging
+
+logging.getLogger("pdfminer").setLevel(logging.ERROR)
 
 def extract_text(pdf_path):
     text = ""
@@ -182,7 +183,7 @@ def main():
                                             continue
 
                                         coordenadas_usadas.add(pos)
-                                        if x0 >= 255 and x1 <= 295:
+                                        if x0 >= 370 and x1 <= 410:
                                             consumo_scee = word.replace(".", "").replace(",", ".")
                                             break
 
